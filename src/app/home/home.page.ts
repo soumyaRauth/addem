@@ -18,7 +18,7 @@ export class HomePage {
   congratsMessage:string="Congratulations!";
   sorryMessage:string="Sorry! the guess isn't correct";
 
-  
+
   constructor(public alertController: AlertController) {
     // Function definition below
     this.generateRandomNumbers(this.rangeOfNumbers);
@@ -86,7 +86,7 @@ export class HomePage {
   }
 
 
-  //Alert
+  //Alert to show whether the answer is correct or not
   async congratsPopup(message) {
     const alert = await this.alertController.create({
       header: 'Ans:'+this.sum,
