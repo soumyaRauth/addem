@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="settings"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-button expand="full" (click)="displayListOfNumbers()">Generate number</ion-button>
+
+  <!-- Displays the top message -->
+  <p text-center *ngIf="flag==true">{{message}}</p>
+
+  <!-- List of Number display -->
+  <ion-grid *ngIf="flag==false">
+    <ion-row class="rowNumber" *ngFor="let num of numbers">
+      {{num}}
+    </ion-row>
+  </ion-grid>
+
+  <!-- Input with a placeholder -->
+  <ion-input placeholder="{{placeholder}}" [(ngModel)]="number" type="number" text-center class="userInput"></ion-input>
+
+  <!-- Check button to check whether the input value is correct or not -->
+  <div text-center>
+    <ion-button (click)="userGuess()">Check</ion-button>
+  </div>
+</ion-content>

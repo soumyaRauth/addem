@@ -1,0 +1,16 @@
+// Handles the styling of the user input text field
+.userInput {
+  // Removes the up and down button (spinner) from the text box
+  // Which was added by default in the number type fields
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+// Handles the style of the number list row
+.rowNumber {
+  justify-content: center; //Center aligns the list of numbers inside the row
+  font-weight: bold;
+}
