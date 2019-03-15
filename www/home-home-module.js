@@ -88,8 +88,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var HomePage = /** @class */ (function () {
-    function HomePage(alertController) {
+    function HomePage(alertController, platform) {
         this.alertController = alertController;
         this.sum = 0; // Holds the total value after calculation
         this.numbers = [];
@@ -100,6 +101,9 @@ var HomePage = /** @class */ (function () {
         this.placeholder = "Enter Input"; // Input field Placeholder text
         this.congratsMessage = "Congratulations!";
         this.sorryMessage = "Sorry! the guess isn't correct";
+        platform.backButton.subscribe(function () {
+            // this does work
+        });
         // Function definition below
         this.generateRandomNumbers(this.rangeOfNumbers);
     }
@@ -139,10 +143,12 @@ var HomePage = /** @class */ (function () {
             if (this.sum == this.number) {
                 console.log(this.congratsMessage);
                 this.congratsPopup('Congrats!!');
+                this.number = null;
                 this.generateRandomNumbers(this.rangeOfNumbers);
             }
             else {
                 console.log("OOPSss!");
+                this.number = null;
                 this.congratsPopup(this.sorryMessage);
                 this.generateRandomNumbers(this.rangeOfNumbers);
             }
@@ -153,7 +159,7 @@ var HomePage = /** @class */ (function () {
             this.placeholder = "Please input your assumption";
         }
     };
-    //Alert
+    //Alert to show whether the answer is correct or not
     HomePage.prototype.congratsPopup = function (message) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
             var alert;
@@ -181,7 +187,7 @@ var HomePage = /** @class */ (function () {
             template: __webpack_require__(/*! ./home.page.html */ "./src/app/home/home.page.html"),
             styles: [__webpack_require__(/*! ./home.page.scss */ "./src/app/home/home.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"]])
     ], HomePage);
     return HomePage;
 }());
